@@ -106,7 +106,8 @@ resource "local_file" "ansible_inventory" {
   filename = "${path.module}/hosts"
   content  = <<EOT
             [cert_emp]
-            ${join("\n", yandex_compute_instance.*.network_interface.0.nat_ip_address)}
+            ${join("\n", yandex_compute_instance.vm-1.network_interface.0.nat_ip_address)}
+            ${join("\n", yandex_compute_instance.vm-2.network_interface.0.nat_ip_address)}
   EOT
 
 }
